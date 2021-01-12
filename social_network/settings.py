@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 import os
+import sys
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -132,6 +133,12 @@ USE_TZ = True
 STATIC_URL = '/static/'
 HUNTER_API_KEY = ''
 CLEARBIT_API_KEY = ''
+
+if not HUNTER_API_KEY:
+    sys.exit('HUNTER_API_KEY must not be empty. Set it up in setting file')
+
+if not CLEARBIT_API_KEY:
+    sys.exit('CLEARBIT_API_KEY must not be empty. Set it up in setting file')
 
 
 # If django is going to be started on different host/port API_URL must be specified as environment variable
