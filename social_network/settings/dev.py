@@ -131,8 +131,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-HUNTER_API_KEY = ''
-CLEARBIT_API_KEY = ''
+HUNTER_API_KEY = '623d6f94209248462596e0975b60bcafee388aa6'
+CLEARBIT_API_KEY = 'sk_1da939ade2c7d203ca1db892dc24ffed'
 
 if not HUNTER_API_KEY:
     sys.exit('HUNTER_API_KEY must not be empty. Set it up in setting file')
