@@ -24,6 +24,8 @@ class SocialApiConnector:
     def create_user(self):
         payload = self.generate_user_payload()
         response = requests.post(self.create_user_url, json=payload)
+        if response.status_code != 201:
+            raise ValueError(response.json())
         payload.update(response.json())
         return payload
 
@@ -73,4 +75,4 @@ class SocialApiConnector:
 
     @staticmethod
     def generate_user_payload():
-        return {'username': str(uuid.uuid1()), 'password': str(uuid.uuid1()), 'email': 'test@gmail.com'}
+        return {'username': str(uuid.uuid1()), 'password': str(uuid.uuid1()), 'email': 'support@soundmag.ua'}

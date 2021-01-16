@@ -22,7 +22,8 @@ def create_posts(users, api_connector, config):
 
 def perform_likes(user, users_with_no_likes, api_connector, config):
     available_likes = config.max_likes_per_user
-    users = itertools.cycle(users_with_no_likes)
+    # User cant be liking himself
+    users = itertools.cycle(list(filter(lambda x: x['username'] != user['username'], users_with_no_likes)))
     while available_likes:
         user_with_unliked_posts = next(users)
         posts = api_connector.get_posts_for_user(

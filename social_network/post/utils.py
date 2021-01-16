@@ -23,7 +23,7 @@ def verify_email(email):
         # TODO: Verification does not work for now
         #  50 requests a month limit has been reached during testing. To make it work valid hunter key must be provided
         return
-    if response.get('result') != HunterCodes.DELIVERABLE.value:
+    if response.get('result') == HunterCodes.UNDELIVERABLE.value:
         raise ValidationError(f'Email {email} can not be reached ')
 
 

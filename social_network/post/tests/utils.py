@@ -28,3 +28,7 @@ def create_post_for_user(user):
 def like_post(post, user):
     post.fans.add(user)
     post.save()
+
+
+def build_post_payload(user_url):
+    return {'data': 'some date', 'creator': user_url}
